@@ -44,19 +44,19 @@ export default function DashboardLayout({ children, user, urbanId, activeFeature
       <div
         className={`${
           sidebarOpen ? "w-64" : "w-16"
-        } transition-all duration-300 bg-gray-900/50 border-r border-purple-500/20 backdrop-blur-sm flex flex-col`}
+        } transition-all duration-300 bg-slate-900/50 border-r border-blue-500/20 backdrop-blur-sm flex flex-col`}
       >
         {/* Sidebar Header */}
-        <div className="p-4 border-b border-purple-500/20">
+        <div className="p-4 border-b border-blue-500/20">
           <div className="flex items-center justify-between">
             <div className={`flex items-center space-x-2 ${!sidebarOpen && "justify-center"}`}>
-              <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Cpu className="w-5 h-5 text-white" />
               </div>
               {sidebarOpen && (
                 <div>
-                  <h1 className="text-lg font-mono font-bold text-glow">MOSBIUS</h1>
-                  <p className="text-xs text-gray-400 capitalize">{urbanId.replace("-", " ")}</p>
+                  <h1 className="text-lg font-mono font-bold text-city-glow">MOSBIUS</h1>
+                  <p className="text-xs text-slate-400 capitalize">{urbanId.replace("-", " ")}</p>
                 </div>
               )}
             </div>
@@ -64,7 +64,7 @@ export default function DashboardLayout({ children, user, urbanId, activeFeature
               variant="ghost"
               size="sm"
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="text-gray-400 hover:text-white"
+              className="text-slate-400 hover:text-white"
             >
               <Menu className="w-4 h-4" />
             </Button>
@@ -73,14 +73,14 @@ export default function DashboardLayout({ children, user, urbanId, activeFeature
 
         {/* User Info */}
         {sidebarOpen && (
-          <div className="p-4 border-b border-purple-500/20">
+          <div className="p-4 border-b border-blue-500/20">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
                 <span className="text-white font-semibold">{user.displayName?.[0]?.toUpperCase()}</span>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-white truncate">{user.displayName}</p>
-                <Badge variant="outline" className="text-xs border-purple-500/20 text-purple-400">
+                <Badge variant="outline" className="text-xs border-blue-500/20 text-blue-400">
                   {user.role}
                 </Badge>
               </div>
@@ -99,7 +99,7 @@ export default function DashboardLayout({ children, user, urbanId, activeFeature
                   key={feature.id}
                   variant={isActive ? "default" : "ghost"}
                   className={`w-full justify-start ${
-                    isActive ? "bg-purple-600 text-white" : "text-gray-300 hover:text-white hover:bg-purple-500/20"
+                    isActive ? "bg-blue-600 text-white" : "text-slate-300 hover:text-white hover:bg-blue-500/20"
                   } ${!sidebarOpen && "justify-center px-2"}`}
                   onClick={() => onFeatureChange(feature.id)}
                 >
@@ -112,10 +112,10 @@ export default function DashboardLayout({ children, user, urbanId, activeFeature
         </nav>
 
         {/* Sidebar Footer */}
-        <div className="p-4 border-t border-purple-500/20">
+        <div className="p-4 border-t border-blue-500/20">
           <Button
             variant="ghost"
-            className={`w-full text-gray-300 hover:text-white hover:bg-red-500/20 ${
+            className={`w-full text-slate-300 hover:text-white hover:bg-red-500/20 ${
               !sidebarOpen && "justify-center px-2"
             }`}
             onClick={handleLogout}
@@ -129,19 +129,19 @@ export default function DashboardLayout({ children, user, urbanId, activeFeature
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Top Bar */}
-        <header className="h-16 bg-gray-900/30 border-b border-purple-500/20 backdrop-blur-sm flex items-center justify-between px-6">
+        <header className="h-16 bg-slate-900/30 border-b border-blue-500/20 backdrop-blur-sm flex items-center justify-between px-6">
           <div>
             <h2 className="text-xl font-semibold text-white">
               {features.find((f) => f.id === activeFeature)?.label || "Dashboard"}
             </h2>
-            <p className="text-sm text-gray-400">Urban Intelligence System</p>
+            <p className="text-sm text-slate-400">Urban Intelligence System</p>
           </div>
           <div className="flex items-center space-x-4">
             <Button
               variant="outline"
               size="sm"
               onClick={() => setChatbotOpen(!chatbotOpen)}
-              className="border-purple-500/20 text-purple-400 hover:bg-purple-500/20 bg-transparent"
+              className="border-blue-500/20 text-blue-400 hover:bg-blue-500/20 bg-transparent"
             >
               <MessageCircle className="w-4 h-4 mr-2" />
               AI Assistant
@@ -150,7 +150,7 @@ export default function DashboardLayout({ children, user, urbanId, activeFeature
               variant="outline"
               size="sm"
               onClick={() => router.push("/networks")}
-              className="border-purple-500/20 text-purple-400 hover:bg-purple-500/20 bg-transparent"
+              className="border-blue-500/20 text-blue-400 hover:bg-blue-500/20 bg-transparent"
             >
               Networks
             </Button>
@@ -158,7 +158,7 @@ export default function DashboardLayout({ children, user, urbanId, activeFeature
               variant="outline"
               size="sm"
               onClick={() => router.push(`/urban/${urbanId}/event`)}
-              className="border-purple-500/20 text-purple-400 hover:bg-purple-500/20 bg-transparent"
+              className="border-blue-500/20 text-blue-400 hover:bg-blue-500/20 bg-transparent"
             >
               City Features
             </Button>

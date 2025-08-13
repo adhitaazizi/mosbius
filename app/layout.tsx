@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${orbitron.variable} ${inter.variable} antialiased`}>
-      <body className="min-h-screen bg-gray-950 text-white">
+      <body className="min-h-screen bg-slate-900 text-white">
         <ErrorBoundary>
           <AuthProvider>{children}</AuthProvider>
         </ErrorBoundary>
